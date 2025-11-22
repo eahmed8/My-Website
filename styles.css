@@ -28,7 +28,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 15px 50px; /* Slightly reduced top/bottom padding to accommodate bigger logo */
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     position: sticky;
@@ -36,21 +36,21 @@ nav {
     z-index: 1000;
 }
 
-/* --- UPDATED LOGO STYLES (Static Image) --- */
+/* --- UPDATED LOGO SIZE --- */
 .logo {
     display: flex;
     align-items: center;
-    border: none;      /* No circle border */
+    border: none;
     padding: 0;
     border-radius: 0;
 }
 
 .logo img {
-    height: 50px;      /* Controls logo size */
+    height: 80px;      /* <--- CHANGED: Increased from 50px to 80px */
     width: auto;
     object-fit: contain;
 }
-/* ------------------------------------------ */
+/* ------------------------- */
 
 nav ul {
     list-style: none;
