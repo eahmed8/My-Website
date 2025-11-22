@@ -12,7 +12,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden;
 }
 
 a {
@@ -33,16 +33,24 @@ nav {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    z-index: 1000; /* High z-index to stay on top */
+    z-index: 1000;
 }
 
+/* --- UPDATED LOGO STYLES (Static Image) --- */
 .logo {
-    font-weight: 700;
-    font-size: 1.5rem;
-    border: 2px solid #000;
-    padding: 5px 10px;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    border: none;      /* No circle border */
+    padding: 0;
+    border-radius: 0;
 }
+
+.logo img {
+    height: 50px;      /* Controls logo size */
+    width: auto;
+    object-fit: contain;
+}
+/* ------------------------------------------ */
 
 nav ul {
     list-style: none;
@@ -58,13 +66,11 @@ nav ul li a {
     padding-bottom: 5px;
 }
 
-/* Hover and Active State (Handled by JS) */
 nav ul li a:hover, 
 nav ul li a.active {
     border-bottom: 2px solid #000;
 }
 
-/* Hamburger Icon (Hidden on Desktop) */
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -78,7 +84,7 @@ nav ul li a.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 90vh; /* Changed to min-height for better mobile support */
+    min-height: 90vh;
     background: #e0e0e0;
     padding: 0 50px;
     gap: 50px;
@@ -109,9 +115,8 @@ nav ul li a.active {
     margin-bottom: 20px;
 }
 
-/* Typewriter Cursor Effect */
 .typewriter-text {
-    border-right: 2px solid #fff; /* Cursor color matches text color */
+    border-right: 2px solid #fff;
     padding-right: 5px;
     animation: blink 0.7s infinite;
 }
@@ -220,7 +225,7 @@ nav ul li a.active {
     align-items: center;
     min-width: 100px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    flex: 1 1 120px; /* Allows boxes to grow/shrink nicely */
+    flex: 1 1 120px;
 }
 
 .skill-box i {
@@ -283,40 +288,35 @@ nav ul li a.active {
    ========================================= */
 @media (max-width: 768px) {
     
-    /* Navigation Mobile Styles */
     .menu-toggle {
-        display: block; /* Show hamburger */
+        display: block; 
     }
 
     nav {
-        padding: 15px 20px; /* Reduce padding on mobile */
+        padding: 15px 20px; 
     }
 
     nav ul {
         position: absolute;
-        top: 100%; /* Push directly below the navbar */
+        top: 100%; 
         left: 0;
         width: 100%;
         background: #fff;
-        flex-direction: column; /* Stack links vertically */
+        flex-direction: column; 
         align-items: center;
         gap: 20px;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        
-        /* Hidden by default */
         display: none; 
         opacity: 0;
         transition: opacity 0.3s ease;
     }
 
-    /* JS adds this class to show menu */
     nav ul.show {
         display: flex;
         opacity: 1;
     }
 
-    /* Hero Section Mobile */
     .hero {
         flex-direction: column-reverse;
         text-align: center;
@@ -325,15 +325,14 @@ nav ul li a.active {
     }
 
     .hero h1 {
-        font-size: 2.5rem; /* Smaller font on mobile */
+        font-size: 2.5rem; 
     }
 
     .hero-image img {
-        width: 250px; /* Smaller image on mobile */
+        width: 250px; 
         height: 250px;
     }
 
-    /* About/Services Mobile */
     .services-grid {
         flex-direction: column;
     }
