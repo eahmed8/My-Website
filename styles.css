@@ -306,35 +306,117 @@ nav ul li a.active {
 }
 
 /* =========================================
-   7. MOBILE RESPONSIVENESS
+   7. RESPONSIVENESS (Multimedia Screens)
    ========================================= */
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
-    nav { padding: 15px 20px; }
+
+/* --- Tablet (768px to 1024px) --- */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.8rem; /* Smaller heading for tablets */
+    }
     
+    .hero {
+        gap: 30px;
+        padding: 0 30px;
+    }
+
+    .skills-grid {
+        justify-content: center; /* Centers skills on medium screens */
+    }
+    
+    .portfolio-grid {
+        /* Forces 2 columns on tablets instead of potentially 1 or 3 */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* --- Mobile (Phones < 768px) --- */
+@media (max-width: 768px) {
+    
+    /* Navigation */
+    .menu-toggle {
+        display: block; 
+    }
+
+    nav {
+        padding: 15px 20px; 
+    }
+
     nav ul {
         position: absolute;
-        top: 100%; left: 0; width: 100%;
+        top: 100%; 
+        left: 0;
+        width: 100%;
         background: #fff;
-        flex-direction: column;
+        flex-direction: column; 
         align-items: center;
         gap: 20px;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        display: none;
+        display: none; 
         opacity: 0;
         transition: opacity 0.3s ease;
+        z-index: 999; /* Ensure menu sits on top of everything */
     }
 
-    nav ul.show { display: flex; opacity: 1; }
+    nav ul.show {
+        display: flex;
+        opacity: 1;
+    }
 
+    /* Hero Section */
     .hero {
         flex-direction: column-reverse;
         text-align: center;
-        padding: 50px 20px;
+        padding: 60px 20px;
         height: auto;
+        min-height: auto; /* Allow height to shrink */
     }
-    .hero h1 { font-size: 2.5rem; }
-    .hero-image img { width: 250px; height: 250px; }
-    .services-grid { flex-direction: column; }
+
+    .hero h1 {
+        font-size: 2.2rem; 
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-image img {
+        width: 220px; 
+        height: 220px;
+        border-width: 5px; /* Thinner border on mobile */
+    }
+
+    /* Section Adjustments */
+    .section-padding {
+        padding: 50px 0; /* Less whitespace on mobile */
+    }
+
+    .services-grid {
+        flex-direction: column;
+        gap: 40px; /* More space between stacked items */
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 column for phones */
+    }
+    
+    .skills-grid {
+        gap: 15px;
+    }
+    
+    .skill-box {
+        flex: 1 1 40%; /* Allows 2 skills per row on small phones */
+    }
+}
+
+/* --- Small Mobile (Old iPhones, SE - < 380px) --- */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .logo img {
+        height: 60px; /* Smaller logo for tiny screens */
+    }
 }
