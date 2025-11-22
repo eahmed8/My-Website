@@ -1,25 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eram Ahmed - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body> 
 
     <!-- Navigation -->
     <nav>
         <div class="logo">EA</div>
+        
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="HTML1.html">Home</a></li>
+            <li><a href="HTML2About.html">About Me</a></li>
+            <li><a href="HTML3Portfolio.html">Portfolio</a></li>
         </ul>
     </nav>
 
@@ -27,8 +33,11 @@
     <header class="hero">
         <div class="hero-content">
             <p class="greeting">Hi, I am</p>
+            
             <h1>Eram Ahmed</h1>
-            <p class="subtitle">Front-end Developer // UI Designer</p>
+            
+            <!-- Typewriter Subtitle -->
+            <p class="subtitle">I am a <span class="typewriter-text"></span></p>
             
             <div class="social-icons">
                 <a href="#"><i class="fab fa-github"></i></a>
@@ -36,6 +45,7 @@
                 <a href="#"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
+        
         <div class="hero-image">
             <!-- Replace src with your actual image file path -->
             <img src="https://via.placeholder.com/400x400" alt="Eram Ahmed Profile">
@@ -43,8 +53,10 @@
     </header>
 
     <footer class="home-footer">
-        <a href="about.html" class="scroll-down">More About Me <i class="fas fa-arrow-right"></i></a>
+        <a href="HTML2About.html" class="scroll-down">More About Me <i class="fas fa-arrow-right"></i></a>
     </footer>
 
+    <!-- Script MUST go here, just before the closing body tag -->
+    <script src="JavaScript.js"></script>
 </body>
 </html>
