@@ -5,26 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eram Ahmed - Home</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body> 
-
-    <!-- Navigation -->
     <nav>
-        <!-- Logo Image (Static, No Link) -->
         <div class="logo">
             <img src="BW_Finallogohorizontal_AhmedEram.png" alt="Logo">
         </div>
-        
-        <!-- Hamburger Menu Icon -->
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
-
         <ul>
             <li><a href="HTML1.html">Home</a></li>
             <li><a href="HTML2About.html">About Me</a></li>
@@ -32,16 +24,16 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
+    <!-- Added 'reveal' class for animation -->
+    <header class="hero reveal">
         <div class="hero-content">
-            <p class="greeting">Hi, I am</p>
-            
+            <p class="greeting">Hello, I am</p>
             <h1>Eram Ahmed</h1>
-            
-            <!-- Typewriter Subtitle -->
             <p class="subtitle">I am a <span class="typewriter-text"></span></p>
             
+            <!-- NEW CALL TO ACTION BUTTON -->
+            <a href="HTML3Portfolio.html" class="btn-primary">View My Work</a>
+
             <div class="social-icons">
                 <a href="#"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -50,16 +42,14 @@
         </div>
         
         <div class="hero-image">
-            <!-- Replace with your profile image -->
             <img src="eram3pxl.jpg" alt="Eram Ahmed Profile">
         </div>
     </header>
 
-    <footer class="home-footer">
+    <footer class="home-footer reveal">
         <a href="HTML2About.html" class="scroll-down">More About Me <i class="fas fa-arrow-right"></i></a>
     </footer>
 
-    <!-- Script at the bottom -->
     <script src="JavaScript.js"></script>
 </body>
 </html>

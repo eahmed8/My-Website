@@ -7,9 +7,13 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9; /* Slightly lighter than before */
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
@@ -18,143 +22,219 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 /* =========================================
-   2. NAVIGATION
+   2. NAVIGATION (Glassmorphism)
    ========================================= */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: padding 0.3s ease;
 }
 
-/* Logo Styles */
 .logo {
     display: flex;
     align-items: center;
     border: none;
     padding: 0;
-    border-radius: 0;
 }
 
 .logo img {
-    height: 80px; /* Big Logo Size */
+    height: 80px;
     width: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05); /* Subtle zoom on logo hover */
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 40px;
 }
 
 nav ul li a {
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     padding-bottom: 5px;
+    position: relative;
 }
 
-nav ul li a:hover, 
-nav ul li a.active {
-    border-bottom: 2px solid #000;
+/* Animated Underline for Links */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
 }
 
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: #333;
 }
 
 /* =========================================
-   3. HERO SECTION
+   3. HERO SECTION (Modern Gradient)
    ========================================= */
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 90vh;
-    background: #e0e0e0;
+    /* Subtle professional gradient instead of flat grey */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 0 50px;
-    gap: 50px;
+    gap: 60px;
+    position: relative;
 }
 
 .hero-content {
-    max-width: 500px;
+    max-width: 550px;
+    z-index: 2;
 }
 
 .greeting {
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin: 10px 0;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
+    color: #222;
 }
 
 .hero .subtitle {
-    font-size: 1rem;
-    background: #333;
-    color: #fff;
-    display: inline-block;
-    padding: 5px 10px;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 30px;
+    display: block; /* Ensures it sits on its own line */
 }
 
 .typewriter-text {
-    border-right: 2px solid #fff;
+    border-right: 2px solid #333;
     padding-right: 5px;
-    animation: blink 0.7s infinite;
+    font-weight: 600;
 }
 
-@keyframes blink {
-    0% { border-color: #fff; }
-    50% { border-color: transparent; }
-    100% { border-color: #fff; }
+/* CTA Button */
+.btn-primary {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .social-icons {
     display: flex;
-    gap: 20px;
-    font-size: 1.5rem;
+    gap: 25px;
+    font-size: 1.4rem;
+    margin-top: 30px;
+}
+
+.social-icons a {
+    color: #555;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #555;
+    color: #000;
+    transform: translateY(-3px);
 }
 
 .hero-image img {
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
     object-fit: cover;
     border-radius: 50%;
-    border: 10px solid #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: 8px solid rgba(255,255,255,0.5); /* Semi-transparent border */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.hero-image img:hover {
+    filter: grayscale(0%); /* Reveal color on hover */
 }
 
 .home-footer {
     text-align: center;
-    padding: 20px;
-    background: #333;
+    padding: 40px 20px;
+    background: #1a1a1a;
     color: #fff;
 }
 
+.scroll-down {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+.scroll-down:hover { opacity: 1; }
+
 /* =========================================
-   4. SHARED SECTIONS (About/Portfolio)
+   4. ANIMATIONS (Fade In Up)
+   ========================================= */
+.reveal {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* =========================================
+   5. SHARED LAYOUTS
    ========================================= */
 .container {
     max-width: 1100px;
@@ -163,26 +243,43 @@ nav ul li a.active {
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .section-title h2 {
     display: inline-block;
-    border: 2px solid #000;
-    padding: 10px 30px;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+    position: relative;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
     text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Subtle underline for titles */
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #333;
+    margin: 10px auto 0;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* =========================================
-   5. ABOUT PAGE STYLES
+   6. ABOUT PAGE
    ========================================= */
 .services-grid {
     display: flex;
@@ -193,95 +290,112 @@ nav ul li a.active {
 
 .service-item {
     flex: 1;
-    padding: 20px;
+    padding: 40px 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
 }
 
 .service-item i {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .skills-container h3 {
-    margin: 20px 0 10px;
-    font-size: 0.9rem;
+    margin: 40px 0 20px;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    color: #555;
+    border-left: 4px solid #333;
+    padding-left: 15px;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     margin-bottom: 40px;
 }
 
 .skill-box {
     background: #fff;
-    padding: 15px 25px;
-    border-radius: 5px;
+    padding: 20px 30px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    min-width: 110px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     flex: 1 1 120px;
-    text-align: center; /* Centers text for Adobe skills */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.skill-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .skill-box i {
-    font-size: 2rem;
-    margin-bottom: 5px;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
 }
 
 .skill-box span {
     font-size: 0.8rem;
     font-weight: 600;
-    line-height: 1.4; /* Better spacing for two-line names */
+    color: #555;
 }
 
-/* --- CUSTOM ADOBE ICONS (New Feature) --- */
+/* Custom Adobe Icons */
 .adobe-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px; /* Rounded corners like standard apps */
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 900; /* Bold text */
-    font-size: 1.3rem;
+    font-weight: 900;
+    font-size: 1.4rem;
     font-family: sans-serif;
     margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
-
-/* Adobe Brand Colors */
-.au { background: #280058; color: #00f6d8; } /* Audition: Purple/Green */
-.ai { background: #330000; color: #ff9a00; } /* Illustrator: Brown/Orange */
-.ps { background: #001e36; color: #31a8ff; } /* Photoshop: Blue/Light Blue */
-.ae { background: #00005b; color: #d8a5ff; } /* After Effects: Dark/Light Purple */
+.au { background: #280058; color: #00f6d8; }
+.ai { background: #330000; color: #ff9a00; }
+.ps { background: #001e36; color: #31a8ff; }
+.ae { background: #00005b; color: #d8a5ff; }
 
 /* =========================================
-   6. PORTFOLIO PAGE STYLES
+   7. PORTFOLIO PAGE
    ========================================= */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
 .portfolio-item {
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    cursor: pointer;
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 100%;
+    height: 250px; /* Fixed height for consistency */
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .portfolio-item:hover img {
@@ -293,130 +407,68 @@ nav ul li a.active {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.7);
+    height: 100%;
+    background: rgba(0,0,0,0.8); /* Darker overlay */
     color: #fff;
-    padding: 10px;
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .overlay h3 {
     transform: translateY(0);
 }
 
 /* =========================================
-   7. RESPONSIVENESS (Multimedia Screens)
+   8. RESPONSIVENESS
    ========================================= */
-
-/* --- Tablet (768px to 1024px) --- */
 @media (max-width: 1024px) {
-    .hero h1 {
-        font-size: 2.8rem; /* Smaller heading for tablets */
-    }
-    
-    .hero {
-        gap: 30px;
-        padding: 0 30px;
-    }
-
-    .skills-grid {
-        justify-content: center; /* Centers skills on medium screens */
-    }
-    
-    .portfolio-grid {
-        /* Forces 2 columns on tablets instead of potentially 1 or 3 */
-        grid-template-columns: repeat(2, 1fr); 
-    }
+    .hero h1 { font-size: 3rem; }
+    .hero { gap: 30px; padding: 0 30px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* --- Mobile (Phones < 768px) --- */
 @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav { padding: 15px 20px; }
     
-    /* Navigation */
-    .menu-toggle {
-        display: block; 
-    }
-
-    nav {
-        padding: 15px 20px; 
-    }
-
     nav ul {
         position: absolute;
-        top: 100%; 
-        left: 0;
-        width: 100%;
-        background: #fff;
-        flex-direction: column; 
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        display: none; 
+        top: 100%; left: 0; width: 100%;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 30px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        display: none;
         opacity: 0;
         transition: opacity 0.3s ease;
-        z-index: 999; /* Ensure menu sits on top of everything */
     }
 
-    nav ul.show {
-        display: flex;
-        opacity: 1;
-    }
+    nav ul.show { display: flex; opacity: 1; }
 
-    /* Hero Section */
     .hero {
         flex-direction: column-reverse;
         text-align: center;
-        padding: 60px 20px;
+        padding: 80px 20px;
         height: auto;
-        min-height: auto; /* Allow height to shrink */
     }
-
-    .hero h1 {
-        font-size: 2.2rem; 
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-image img {
-        width: 220px; 
-        height: 220px;
-        border-width: 5px; /* Thinner border on mobile */
-    }
-
-    /* Section Adjustments */
-    .section-padding {
-        padding: 50px 0; /* Less whitespace on mobile */
-    }
-
-    .services-grid {
-        flex-direction: column;
-        gap: 40px; /* More space between stacked items */
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: 1fr; /* 1 column for phones */
-    }
-    
-    .skills-grid {
-        gap: 15px;
-    }
-    
-    .skill-box {
-        flex: 1 1 40%; /* Allows 2 skills per row on small phones */
-    }
-}
-
-/* --- Small Mobile (Old iPhones, SE - < 380px) --- */
-@media (max-width: 380px) {
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .logo img {
-        height: 60px; /* Smaller logo for tiny screens */
-    }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-image img { width: 250px; height: 250px; margin-bottom: 30px;}
+    .services-grid { flex-direction: column; gap: 20px;}
+    .portfolio-grid { grid-template-columns: 1fr; }
 }
