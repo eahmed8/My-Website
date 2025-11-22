@@ -22,13 +22,13 @@ a {
 }
 
 /* =========================================
-   2. NAVIGATION (Desktop Default)
+   2. NAVIGATION
    ========================================= */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px; /* Slightly reduced top/bottom padding to accommodate bigger logo */
+    padding: 15px 50px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     position: sticky;
@@ -36,7 +36,7 @@ nav {
     z-index: 1000;
 }
 
-/* --- UPDATED LOGO SIZE --- */
+/* Logo Styles */
 .logo {
     display: flex;
     align-items: center;
@@ -46,11 +46,10 @@ nav {
 }
 
 .logo img {
-    height: 80px;      /* <--- CHANGED: Increased from 50px to 80px */
+    height: 80px; /* Big Logo Size */
     width: auto;
     object-fit: contain;
 }
-/* ------------------------- */
 
 nav ul {
     list-style: none;
@@ -226,6 +225,7 @@ nav ul li a.active {
     min-width: 100px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     flex: 1 1 120px;
+    text-align: center; /* Centers text for Adobe skills */
 }
 
 .skill-box i {
@@ -236,7 +236,29 @@ nav ul li a.active {
 .skill-box span {
     font-size: 0.8rem;
     font-weight: 600;
+    line-height: 1.4; /* Better spacing for two-line names */
 }
+
+/* --- CUSTOM ADOBE ICONS (New Feature) --- */
+.adobe-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px; /* Rounded corners like standard apps */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900; /* Bold text */
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Adobe Brand Colors */
+.au { background: #280058; color: #00f6d8; } /* Audition: Purple/Green */
+.ai { background: #330000; color: #ff9a00; } /* Illustrator: Brown/Orange */
+.ps { background: #001e36; color: #31a8ff; } /* Photoshop: Blue/Light Blue */
+.ae { background: #00005b; color: #d8a5ff; } /* After Effects: Dark/Light Purple */
 
 /* =========================================
    6. PORTFOLIO PAGE STYLES
@@ -284,38 +306,27 @@ nav ul li a.active {
 }
 
 /* =========================================
-   7. MOBILE RESPONSIVENESS (Max-width: 768px)
+   7. MOBILE RESPONSIVENESS
    ========================================= */
 @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav { padding: 15px 20px; }
     
-    .menu-toggle {
-        display: block; 
-    }
-
-    nav {
-        padding: 15px 20px; 
-    }
-
     nav ul {
         position: absolute;
-        top: 100%; 
-        left: 0;
-        width: 100%;
+        top: 100%; left: 0; width: 100%;
         background: #fff;
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         gap: 20px;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        display: none; 
+        display: none;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
 
-    nav ul.show {
-        display: flex;
-        opacity: 1;
-    }
+    nav ul.show { display: flex; opacity: 1; }
 
     .hero {
         flex-direction: column-reverse;
@@ -323,17 +334,7 @@ nav ul li a.active {
         padding: 50px 20px;
         height: auto;
     }
-
-    .hero h1 {
-        font-size: 2.5rem; 
-    }
-
-    .hero-image img {
-        width: 250px; 
-        height: 250px;
-    }
-
-    .services-grid {
-        flex-direction: column;
-    }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-image img { width: 250px; height: 250px; }
+    .services-grid { flex-direction: column; }
 }
