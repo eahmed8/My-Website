@@ -524,16 +524,12 @@ nav ul li a.active::after {
     margin-bottom: 30px;
 }
 
-.resume-logo {
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 700;
-    border: 3px solid #31a8ff; /* Matching the blue in your resume logo */
-    color: #31a8ff;
-    padding: 10px 15px;
-    border-radius: 50%;
+.resume-main-logo {
+    height: 100px; /* Adjusts the size of the logo */
+    width: auto;
     margin-bottom: 15px;
-    font-family: serif;
+    display: inline-block;
+
 }
 
 .resume-header h1 {
