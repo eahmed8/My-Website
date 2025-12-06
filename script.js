@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (linkPath === currentPage) {
             link.classList.add('active');
-        } else if (currentPage === '' && linkPath === 'index.html') {
+        } else if (currentPage === '' && linkPath === 'HTML1.html') {
             link.classList.add('active');
         }
     });
