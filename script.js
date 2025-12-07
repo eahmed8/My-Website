@@ -84,12 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
 
     // ==========================================
-    // 5. PROJECT MODAL LOGIC (FIXED)
+    // 5. PROJECT MODAL LOGIC (VIDEO FIX)
     // ==========================================
     const modal = document.getElementById('projectModal');
     const modalImg = document.getElementById('modalImage');
+    
+    // Grab the video container and iframe
     const modalVideoContainer = document.getElementById('modalVideoContainer'); 
     const modalVideo = document.getElementById('modalVideo'); 
+    
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDescription');
     const modalLink = document.getElementById('modalLink');
@@ -104,24 +107,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 const image = item.getAttribute('data-image');
                 const link = item.getAttribute('data-link');
                 
-                // Get the ID and trim whitespace just in case
-                let videoId = item.getAttribute('data-video-id');
-                if(videoId) videoId = videoId.trim();
+                // Get the video ID
+                const videoId = item.getAttribute('data-video-id');
 
                 modalTitle.textContent = title;
                 modalDesc.innerHTML = desc;
 
-                // --- VIDEO LOGIC ---
-                if (videoId && videoId !== "YOUR_YOUTUBE_ID_HERE") {
-                    modalImg.style.display = 'none';
-                    modalVideoContainer.style.display = 'block';
-                    // Added ?autoplay=1&rel=0 to fix loading issues
-                    modalVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`; 
+                // --- VIDEO vs IMAGE SWITCHING LOGIC ---
+                if (videoId) {
+                    // 1. If there is a video ID, HIDE the image
+                    if(modalImg) modalImg.style.display = 'none';
+                    
+                    // 2. SHOW the video container
+                    if(modalVideoContainer) modalVideoContainer.style.display = 'block';
+                    
+                    // 3. SET the YouTube source
+                    if(modalVideo) modalVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
                 } else {
-                    modalVideoContainer.style.display = 'none';
-                    modalVideo.src = ''; 
-                    modalImg.style.display = 'block';
-                    modalImg.src = image;
+                    // 1. No video? HIDE video container
+                    if(modalVideoContainer) modalVideoContainer.style.display = 'none';
+                    if(modalVideo) modalVideo.src = ''; 
+                    
+                    // 2. SHOW the image
+                    if(modalImg) {
+                        modalImg.style.display = 'block';
+                        modalImg.src = image;
+                    }
                 }
 
                 // Button Logic
@@ -143,7 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const closeModal = () => {
             modal.classList.remove('show');
-            modalVideo.src = ''; // Stop video
+            // Stop video when closing
+            if(modalVideo) modalVideo.src = ''; 
         };
 
         if (closeBtn) {
