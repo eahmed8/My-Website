@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ==========================================
-    // 1. MOBILE NAVIGATION
-    // ==========================================
+    // 1. Mobile Navigation
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('nav ul');
 
@@ -22,9 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 2. ACTIVE LINK HIGHLIGHTER
-    // ==========================================
+    // 2. Active Link Highlighter
     const currentPage = window.location.pathname.split('/').pop();
     const links = document.querySelectorAll('nav ul li a');
 
@@ -39,11 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==========================================
-    // 3. TYPEWRITER EFFECT (Home Page)
-    // ==========================================
+    // 3. Typewriter Effect
     const textElement = document.querySelector('.typewriter-text');
-    
     if (textElement) {
         const words = ["Front-end Developer", "UI Designer", "Creative Coder"];
         let wordIndex = 0;
@@ -62,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 charIndex++;
                 typeSpeed = 150; 
             }
-
             if (!isDeleting && charIndex === currentWord.length) {
                 isDeleting = true;
                 typeSpeed = 2000; 
@@ -76,15 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    // ==========================================
-    // 4. SCROLL REVEAL ANIMATION
-    // ==========================================
+    // 4. Scroll Reveal
     const reveals = document.querySelectorAll('.reveal');
-
     const revealOnScroll = () => {
         const windowHeight = window.innerHeight;
         const elementVisible = 100; 
-
         reveals.forEach((reveal) => {
             const elementTop = reveal.getBoundingClientRect().top;
             if (elementTop < windowHeight - elementVisible) {
@@ -92,13 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
-    // ==========================================
-    // 5. PROJECT MODAL (POPUP) LOGIC
-    // ==========================================
+    // 5. PROJECT MODAL LOGIC (With YouTube Detection)
     const modal = document.getElementById('projectModal');
     const modalImg = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
@@ -107,48 +92,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.close-modal');
     const projectItems = document.querySelectorAll('.portfolio-item');
 
-    // Only run this code if the modal exists on the page
     if (modal) {
-        // Add click event to each project card
         projectItems.forEach(item => {
             item.addEventListener('click', () => {
-                // 1. Get data from the clicked item
                 const title = item.getAttribute('data-title');
                 const desc = item.getAttribute('data-description');
                 const image = item.getAttribute('data-image');
                 const link = item.getAttribute('data-link');
 
-                // 2. Put that data into the modal
                 modalTitle.textContent = title;
-                
-                // *** THIS IS THE IMPORTANT CHANGE ***
-                // We use innerHTML so the <b> and <br> tags work
-                modalDesc.innerHTML = desc; 
-                
+                modalDesc.innerHTML = desc; // Use innerHTML for HTML formatting
                 modalImg.src = image;
                 
-                // 3. Handle the "Visit Website" button
+                // Button Logic
                 if(link && link !== "#") {
                     modalLink.href = link;
-                    modalLink.style.display = "inline-block"; // Show button
-                    modalLink.textContent = "Visit Website";
+                    modalLink.style.display = "inline-block";
+                    
+                    // Check if it's a YouTube link to change button text
+                    if (link.includes("youtube.com") || link.includes("youtu.be")) {
+                        modalLink.innerHTML = '<i class="fab fa-youtube"></i> Watch Video';
+                    } else {
+                        modalLink.textContent = "Visit Website";
+                    }
                 } else {
-                    modalLink.style.display = "none"; // Hide button for placeholders
+                    modalLink.style.display = "none";
                 }
 
-                // 4. Show the modal
                 modal.classList.add('show');
             });
         });
 
-        // Close when clicking the 'X'
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 modal.classList.remove('show');
             });
         }
-
-        // Close when clicking outside the box
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('show');
