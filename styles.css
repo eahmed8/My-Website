@@ -506,6 +506,16 @@ nav ul li a.active::after {
     text-transform: uppercase; font-size: 0.9rem;
     border-radius: 5px; font-weight: 600;
 }
+.modal-content {
+    /* ... keep existing styles ... */
+    max-height: 90vh; /* Don't let it get taller than the screen */
+    overflow-y: auto; /* Add a scrollbar if the text is long */
+}
+
+.modal-content p {
+    text-align: left; /* Make long text easier to read */
+    margin-bottom: 20px;
+}
 /* =========================================
    9. RESUME PAGE STYLES
    ========================================= */

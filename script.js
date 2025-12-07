@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (linkPath === currentPage) {
             link.classList.add('active');
-        } else if (currentPage === '' && linkPath === 'HTML1.html') {
+        } else if ((currentPage === '' || currentPage === '/') && linkPath === 'index.html') {
             link.classList.add('active');
         }
     });
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
 
     // ==========================================
-    // 5. PROJECT MODAL (POPUP) LOGIC - *** THIS FIXES THE CLICK ***
+    // 5. PROJECT MODAL (POPUP) LOGIC
     // ==========================================
     const modal = document.getElementById('projectModal');
     const modalImg = document.getElementById('modalImage');
@@ -120,7 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // 2. Put that data into the modal
                 modalTitle.textContent = title;
-                modalDesc.textContent = desc;
+                
+                // *** THIS IS THE IMPORTANT CHANGE ***
+                // We use innerHTML so the <b> and <br> tags work
+                modalDesc.innerHTML = desc; 
+                
                 modalImg.src = image;
                 
                 // 3. Handle the "Visit Website" button
