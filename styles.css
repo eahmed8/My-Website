@@ -8,12 +8,12 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f9f9f9; /* Slightly lighter than before */
+    background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
@@ -33,7 +33,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    /* Glass Effect */
     background: rgba(255, 255, 255, 0.95); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -41,7 +40,6 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: padding 0.3s ease;
 }
 
 .logo {
@@ -59,7 +57,7 @@ nav {
 }
 
 .logo:hover img {
-    transform: scale(1.05); /* Subtle zoom on logo hover */
+    transform: scale(1.05);
 }
 
 nav ul {
@@ -77,7 +75,6 @@ nav ul li a {
     position: relative;
 }
 
-/* Animated Underline for Links */
 nav ul li a::after {
     content: '';
     position: absolute;
@@ -102,18 +99,16 @@ nav ul li a.active::after {
 }
 
 /* =========================================
-   3. HERO SECTION (Modern Gradient)
+   3. HERO SECTION
    ========================================= */
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 90vh;
-    /* Subtle professional gradient instead of flat grey */
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 0 50px;
     gap: 60px;
-    position: relative;
 }
 
 .hero-content {
@@ -142,16 +137,22 @@ nav ul li a.active::after {
     font-weight: 500;
     color: #444;
     margin-bottom: 30px;
-    display: block; /* Ensures it sits on its own line */
+    display: block; 
 }
 
 .typewriter-text {
     border-right: 2px solid #333;
     padding-right: 5px;
     font-weight: 600;
+    animation: blink 0.7s infinite;
 }
 
-/* CTA Button */
+@keyframes blink {
+    0% { border-color: #333; }
+    50% { border-color: transparent; }
+    100% { border-color: #333; }
+}
+
 .btn-primary {
     display: inline-block;
     background: #333;
@@ -194,14 +195,14 @@ nav ul li a.active::after {
     height: 380px;
     object-fit: cover;
     border-radius: 50%;
-    border: 8px solid rgba(255,255,255,0.5); /* Semi-transparent border */
+    border: 8px solid rgba(255,255,255,0.5); 
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     filter: grayscale(100%);
     transition: filter 0.5s ease;
 }
 
 .hero-image img:hover {
-    filter: grayscale(0%); /* Reveal color on hover */
+    filter: grayscale(0%); 
 }
 
 .home-footer {
@@ -219,22 +220,7 @@ nav ul li a.active::after {
 .scroll-down:hover { opacity: 1; }
 
 /* =========================================
-   4. ANIMATIONS (Fade In Up)
-   ========================================= */
-.reveal {
-    position: relative;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 1s ease;
-}
-
-.reveal.active {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* =========================================
-   5. SHARED LAYOUTS
+   4. SHARED LAYOUTS & ANIMATIONS
    ========================================= */
 .container {
     max-width: 1100px;
@@ -261,7 +247,6 @@ nav ul li a.active::after {
     font-weight: 700;
 }
 
-/* Subtle underline for titles */
 .section-title h2::after {
     content: '';
     display: block;
@@ -278,8 +263,21 @@ nav ul li a.active::after {
     margin: 0 auto;
 }
 
+/* Fade In Up Animation */
+.reveal {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 /* =========================================
-   6. ABOUT PAGE
+   5. ABOUT & SKILLS
    ========================================= */
 .services-grid {
     display: flex;
@@ -354,7 +352,6 @@ nav ul li a.active::after {
     color: #555;
 }
 
-/* Custom Adobe Icons */
 .adobe-icon {
     width: 48px;
     height: 48px;
@@ -374,7 +371,7 @@ nav ul li a.active::after {
 .ae { background: #00005b; color: #d8a5ff; }
 
 /* =========================================
-   7. PORTFOLIO PAGE
+   6. PORTFOLIO PAGE STYLES
    ========================================= */
 .portfolio-grid {
     display: grid;
@@ -392,7 +389,7 @@ nav ul li a.active::after {
 
 .portfolio-item img {
     width: 100%;
-    height: 250px; /* Fixed height for consistency */
+    height: 250px; 
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
@@ -408,7 +405,7 @@ nav ul li a.active::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8); /* Darker overlay */
+    background: rgba(0,0,0,0.8);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -434,90 +431,138 @@ nav ul li a.active::after {
 }
 
 /* =========================================
-   8. RESPONSIVENESS
+   7. PROJECT MODAL (CASE STUDY LAYOUT)
    ========================================= */
-@media (max-width: 1024px) {
-    .hero h1 { font-size: 3rem; }
-    .hero { gap: 30px; padding: 0 30px; }
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
-    nav { padding: 15px 20px; }
-    
-    nav ul {
-        position: absolute;
-        top: 100%; left: 0; width: 100%;
-        background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 30px 0;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    nav ul.show { display: flex; opacity: 1; }
-
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 80px 20px;
-        height: auto;
-    }
-    .hero h1 { font-size: 2.5rem; }
-    .hero-image img { width: 250px; height: 250px; margin-bottom: 30px;}
-    .services-grid { flex-direction: column; gap: 20px;}
-    .portfolio-grid { grid-template-columns: 1fr; }
-}
-/* MODAL STYLES */
 .modal {
     display: none; 
     position: fixed; 
     z-index: 2000;
-    left: 0; top: 0;
-    width: 100%; height: 100%; 
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-    align-items: center; justify-content: center;
-    opacity: 0; transition: opacity 0.3s ease;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
 }
-.modal.show { display: flex; opacity: 1; }
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
 
 .modal-content {
     background-color: #fff;
-    padding: 30px; border-radius: 10px;
-    width: 90%; max-width: 600px;
-    text-align: center; position: relative;
-    transform: scale(0.7); transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 900px; 
+    max-height: 90vh; 
+    overflow-y: auto; 
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    text-align: left;
+    position: relative;
+    padding: 0; 
 }
-.modal.show .modal-content { transform: scale(1); }
 
-.close-modal {
-    position: absolute; top: 15px; right: 20px;
-    font-size: 28px; font-weight: bold; cursor: pointer;
+.modal.show .modal-content {
+    transform: translateY(0);
 }
 
-.modal-btn {
-    display: inline-block; background: #000; color: #fff;
-    padding: 10px 25px; margin-top: 20px;
-    text-transform: uppercase; font-size: 0.9rem;
-    border-radius: 5px; font-weight: 600;
+/* Banner Image */
+.modal-content img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: block;
 }
-.modal-content {
-    /* ... keep existing styles ... */
-    max-height: 90vh; /* Don't let it get taller than the screen */
-    overflow-y: auto; /* Add a scrollbar if the text is long */
+
+/* Body Content */
+.modal-body {
+    padding: 40px 50px;
+}
+
+.modal-content h2 {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: 700;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
 }
 
 .modal-content p {
-    text-align: left; /* Make long text easier to read */
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
     margin-bottom: 20px;
 }
+
+/* The <h3> tags inside descriptions */
+.modal-content h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    background: #f4f4f4;
+    padding: 8px 15px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    background: #000;
+}
+
+.modal-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 12px 30px;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
 /* =========================================
-   9. RESUME PAGE STYLES
+   8. RESUME PAGE STYLES
    ========================================= */
 .resume-paper {
     background: #fff;
@@ -535,16 +580,15 @@ nav ul li a.active::after {
 }
 
 .resume-main-logo {
-    height: 100px; /* Adjusts the size of the logo */
+    height: 100px; 
     width: auto;
     margin-bottom: 15px;
     display: inline-block;
-
 }
 
 .resume-header h1 {
     font-size: 2.5rem;
-    color: #00aaff; /* Cyan/Blue like the image */
+    color: #00aaff; 
     margin: 0;
     font-weight: 400;
 }
@@ -615,10 +659,6 @@ nav ul li a.active::after {
     color: #555;
 }
 
-.resume-paper ul li {
-    margin-bottom: 5px;
-}
-
 .resume-list-simple {
     list-style: none;
     margin-left: 0;
@@ -628,28 +668,69 @@ nav ul li a.active::after {
     margin-bottom: 10px;
 }
 
-/* Print Styling: When you press print, hide the nav and footer */
 @media print {
-    nav, footer, .modal-btn {
-        display: none !important;
-    }
-    body {
-        background: #fff;
-    }
-    .resume-paper {
-        box-shadow: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
+    nav, footer, .modal-btn { display: none !important; }
+    body { background: #fff; }
+    .resume-paper { box-shadow: none; padding: 0; margin: 0; width: 100%; }
 }
 
-/* Mobile adjustments */
+/* =========================================
+   9. RESPONSIVENESS
+   ========================================= */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero { gap: 30px; padding: 0 30px; }
+    .skills-grid { justify-content: center; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
-    .resume-paper {
-        padding: 30px 20px;
+    .menu-toggle { display: block; }
+    nav { padding: 15px 20px; }
+    
+    nav ul {
+        position: absolute;
+        top: 100%; left: 0; width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 999;
     }
-    .resume-header h1 {
-        font-size: 2rem;
+
+    nav ul.show { display: flex; opacity: 1; }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 60px 20px;
+        height: auto;
     }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-content { width: 100%; }
+    .hero-image img { width: 220px; height: 220px; }
+    .section-padding { padding: 50px 0; }
+    .services-grid { flex-direction: column; gap: 40px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .skills-grid { gap: 15px; }
+    .skill-box { flex: 1 1 40%; }
+    
+    /* Modal Mobile */
+    .modal-content img { height: 200px; }
+    .modal-body { padding: 25px; }
+    .modal-content h2 { font-size: 1.5rem; }
+    
+    /* Resume Mobile */
+    .resume-paper { padding: 30px 20px; }
+    .resume-header h1 { font-size: 2rem; }
+}
+
+@media (max-width: 380px) {
+    .hero h1 { font-size: 1.8rem; }
+    .logo img { height: 60px; }
 }
