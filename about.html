@@ -11,28 +11,38 @@
 
 <body>
     <nav>
-        <div class="logo">
+        <a href="index.html" class="logo">
             <img src="BW_Finallogohorizontal_AhmedEram.png" alt="Logo">
-        </div>
+        </a>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
         <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="resume.html">Resume</a></li>
-</ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Me</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
     </nav>
 
     <section class="container section-padding">
-        <!-- Improved Intro Text -->
+        
+        <!-- INTRO SECTION -->
         <div class="section-title reveal">
             <h2>ABOUT ME</h2>
             <p>I am a creative technologist who transforms complex problems into beautiful, intuitive, and performant web experiences.</p>
+            
+            <!-- NEW RESUME BUTTON -->
+            <div style="margin-top: 30px;">
+                <!-- This links to the resume.html file we created earlier -->
+                <a href="resume.html" target="_blank" class="btn-primary">
+                    <i class="fas fa-file-alt" style="margin-right: 8px;"></i> View My Resume
+                </a>
+                <!-- Alternatively, if you want to link to a PDF file directly: -->
+                <!-- <a href="Eram_Ahmed_Resume.pdf" target="_blank" class="btn-primary">View My Resume</a> -->
+            </div>
         </div>
 
-        <!-- Services Section with Improved Copy -->
+        <!-- SERVICES GRID -->
         <div class="services-grid reveal">
             <div class="service-item">
                 <i class="fas fa-pencil-ruler"></i>
@@ -55,6 +65,7 @@
             <h2>SKILLS</h2>
         </div>
 
+        <!-- SKILLS SECTION -->
         <div class="skills-container reveal">
             <h3>USING NOW:</h3>
             <div class="skills-grid">
