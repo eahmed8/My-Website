@@ -83,9 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
-    // 5. PROJECT MODAL LOGIC (With YouTube Detection)
+    // 5. PROJECT MODAL LOGIC (With Video Embed Support)
     const modal = document.getElementById('projectModal');
     const modalImg = document.getElementById('modalImage');
+    const modalVideoContainer = document.getElementById('modalVideoContainer'); // New container
+    const modalVideo = document.getElementById('modalVideo'); // The iframe
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDescription');
     const modalLink = document.getElementById('modalLink');
@@ -99,19 +101,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 const desc = item.getAttribute('data-description');
                 const image = item.getAttribute('data-image');
                 const link = item.getAttribute('data-link');
+                const videoId = item.getAttribute('data-video-id'); // Get Video ID
 
                 modalTitle.textContent = title;
-                modalDesc.innerHTML = desc; // Use innerHTML for HTML formatting
-                modalImg.src = image;
-                
+                modalDesc.innerHTML = desc;
+
+                // --- VIDEO vs IMAGE LOGIC ---
+                if (videoId) {
+                    // It's a video project
+                    modalImg.style.display = 'none'; // Hide Image
+                    modalVideoContainer.style.display = 'block'; // Show Video
+                    modalVideo.src = `https://www.youtube.com/embed/${videoId}`; // Set Video
+                } else {
+                    // It's a web project
+                    modalVideoContainer.style.display = 'none'; // Hide Video
+                    modalVideo.src = ''; // Stop any previous video
+                    modalImg.style.display = 'block'; // Show Image
+                    modalImg.src = image; // Set Image
+                }
+
                 // Button Logic
                 if(link && link !== "#") {
                     modalLink.href = link;
                     modalLink.style.display = "inline-block";
-                    
-                    // Check if it's a YouTube link to change button text
-                    if (link.includes("youtube.com") || link.includes("youtu.be")) {
-                        modalLink.innerHTML = '<i class="fab fa-youtube"></i> Watch Video';
+                    // If we have a video embedded, we can hide the external button OR keep it as "Watch on YouTube"
+                    // Let's keep it but specific
+                    if (videoId) {
+                        modalLink.innerHTML = '<i class="fab fa-youtube"></i> Watch on YouTube';
                     } else {
                         modalLink.textContent = "Visit Website";
                     }
@@ -123,14 +139,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Function to close modal and stop video
+        const closeModal = () => {
+            modal.classList.remove('show');
+            modalVideo.src = ''; // Clear source to stop audio playing
+        };
+
         if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                modal.classList.remove('show');
-            });
+            closeBtn.addEventListener('click', closeModal);
         }
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.classList.remove('show');
+                closeModal();
             }
         });
     }

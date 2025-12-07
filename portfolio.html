@@ -21,7 +21,6 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
-            
         </ul>
     </nav>
 
@@ -34,7 +33,7 @@
         <!-- Portfolio Grid -->
         <div class="portfolio-grid reveal">
             
-            <!-- PROJECT 1: Pawfect Pals -->
+            <!-- PROJECT 1: Pawfect Pals (Web - No Video ID) -->
             <div class="portfolio-item" 
                  data-title="Pawfect Pals" 
                  data-description="<h3>Objective</h3>Design and develop a fully responsive, interactive website for a dog adoption shop. The goal was to create a warm, user-friendly interface that raises adoption awareness while showcasing advanced front-end skills.<br><h3>Process</h3>Built with semantic HTML5 and CSS Grid/Flexbox for a mobile-first layout. JavaScript was used to create an image carousel, a number guessing game, and a Light/Dark mode toggle. I also integrated a third-party Dog API to fetch random puppy photos dynamically.<br><h3>Results</h3>A functional, accessible website that demonstrates DOM manipulation, API integration, and responsive design."
@@ -44,7 +43,7 @@
                 <div class="overlay"><h3>Pawfect Pals</h3><p>Web Development</p></div>
             </div>
 
-            <!-- PROJECT 2: Wunderlust Travel -->
+            <!-- PROJECT 2: Wunderlust Travel (Web - No Video ID) -->
             <div class="portfolio-item" 
                  data-title="Wunderlust Travel" 
                  data-description="<h3>Objective</h3>Create a travel-themed website that inspires exploration through visually appealing destinations. The challenge was maintaining aesthetic consistency and performance across desktop, tablet, and mobile devices.<br><h3>Process</h3>Inspired by sites like Expedia, I used editorial-style layouts with high-quality imagery. The site was built with a strong focus on SEO-friendly HTML structure and advanced CSS layouts (Grid/Flexbox) to ensure it adapts seamlessly to any screen size.<br><h3>Results</h3>A polished, responsive platform that combines clean design with strong functionality, optimized for user experience."
@@ -54,7 +53,7 @@
                 <div class="overlay"><h3>Wunderlust Travel</h3><p>Web Development</p></div>
             </div>
 
-            <!-- PROJECT 3: The Chaiwala Shop -->
+            <!-- PROJECT 3: The Chaiwala Shop (Web - No Video ID) -->
             <div class="portfolio-item" 
                  data-title="The Chaiwala Shop" 
                  data-description="<h3>Objective</h3>A complete rebranding and landing page project for a traditional Hyderabad-style cafe to modernize their digital presence.<br><h3>Process</h3>Designed a rich, dark aesthetic to reflect the brand's tradition using deep greens and golds. Developed Home, About, Contact, Order, and Checkout pages with a focus on seamless user navigation and responsive design across all devices.<br><h3>Results</h3>A cohesive multi-page website that effectively communicates the brand story and facilitates online ordering with a premium feel."
@@ -64,22 +63,26 @@
                 <div class="overlay"><h3>The Chaiwala Shop</h3><p>Web Development</p></div>
             </div>
 
-            <!-- PROJECT 4: Music Through My Ears (UPDATED LINK) -->
+            <!-- PROJECT 4: Music Through My Ears (VIDEO EMBED) -->
+            <!-- REPLACE 'YOUR_YOUTUBE_ID_HERE' with the actual ID (e.g., dQw4w9WgXcQ) -->
             <div class="portfolio-item" 
                  data-title="Music Through My Ears" 
                  data-description="<h3>Objective</h3>Produce a music video where the soundtrack exists naturally within the environment (diegetic music). The goal was to blend natural soundscapes with precise timing to create a cohesive narrative.<br><h3>Process</h3>Edited in Adobe Premiere Pro. I layered ambient recordings (footsteps, chatter) and used EQ and convolution reverb to match sounds to the visual space. Keyframe automation was used to synchronize visuals with audio beats.<br><h3>Results</h3>An immersive audiovisual experience that successfully blurs the line between soundtrack and reality."
                  data-image="https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=600&auto=format&fit=crop"
-                 data-link="https://www.youtube.com/watch?v=https://youtu.be/kpE70bZfNGE">
+                 data-video-id="kpE70bZfNGE"
+                 data-link="#">
                 <img src="musicvideo.png" alt="Music Video">
                 <div class="overlay"><h3>Music Through My Ears</h3><p>Video Production</p></div>
             </div>
 
-            <!-- PROJECT 5: Journey to Launch (UPDATED LINK) -->
+            <!-- PROJECT 5: Journey to Launch (VIDEO EMBED) -->
+            <!-- REPLACE 'YOUR_YOUTUBE_ID_HERE' with the actual ID -->
             <div class="portfolio-item" 
                  data-title="Journey to Launch" 
                  data-description="<h3>Objective</h3>Create a 2D motion-graphic video conveying the sense of launching and reaching new heights.<br><h3>Process</h3>Designed vector assets in Illustrator and animated them in Adobe After Effects. I used 3D layers and a virtual camera to create depth (parallax), and applied the Graph Editor to fine-tune timing and easing for realistic motion.<br><h3>Results</h3>A dynamic animation that demonstrates technical skills in keyframing, parenting, and visual storytelling."
                  data-image="https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=600&auto=format&fit=crop"
-                 data-link="https://www.youtube.com/watch?v=https://youtu.be/0jjdlcgEF0s">
+                 data-video-id="Cwde-2LpVH0"
+                 data-link="#">
                 <img src="animation basic full.png" alt="Rocket Animation">
                 <div class="overlay"><h3>Journey to Launch</h3><p>Motion Graphics</p></div>
             </div>
@@ -97,15 +100,22 @@
         </div>
     </section>
 
-    <!-- "CASE STUDY" MODAL STRUCTURE -->
+    <!-- NEW MODAL STRUCTURE WITH VIDEO SUPPORT -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
+            
+            <!-- 1. The Image Banner (For Web Projects) -->
             <img src="" id="modalImage" alt="Project Detail">
+            
+            <!-- 2. The Video Container (For Video Projects) - Hidden by default -->
+            <div id="modalVideoContainer" class="video-wrapper" style="display:none;">
+                <iframe id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
             <div class="modal-body">
                 <h2 id="modalTitle">Project Title</h2>
                 <div id="modalDescription"></div>
-                <!-- The button text will change automatically via JavaScript -->
                 <a href="#" id="modalLink" target="_blank" class="modal-btn">Visit Website</a>
             </div>
         </div>
