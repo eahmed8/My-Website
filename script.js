@@ -142,7 +142,7 @@ if (modal) {
 
                 // Set YouTube embed URL
                 if (modalVideo) {
-                    modalVideo.src = `//youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                    modalVideo.src = `https://youtube.com/embed/${videoId}?autoplay=1&rel=0`;
                 }
             } else {
                 // No video: hide video container and show image
